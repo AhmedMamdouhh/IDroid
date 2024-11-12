@@ -1,11 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
+
 }
 
 android {
     namespace = "com.example.idroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.idroid"
@@ -66,4 +70,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    // Retrofit
+    implementation(libs.retrofit)
+    // Gson Converter
+    implementation(libs.converter.gson)
+    //Hilt
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.compiler)
+
 }
